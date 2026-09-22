@@ -1,0 +1,19 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ambulance Command • Medi-ResQ</title><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head><body data-page="ambulance" data-role="ambulance"><div class="app-shell">
+<aside class="sidebar"><div class="brand"><span class="brand-mark small">✚</span><div><b>Medi-ResQ</b><small>Nagpur Command</small></div></div>
+<div class="demo-pill">● DEMO MODE</div><nav>
+<a href="ambulance.html" data-nav="ambulance">🚑 <span>Ambulance</span></a><a href="hospital.html" data-nav="hospital">🏥 <span>Hospital</span></a>
+<a href="bloodbank.html" data-nav="bloodbank">🩸 <span>Blood Bank</span></a><a href="admin.html" data-nav="admin">◉ <span>Control Center</span></a>
+<a href="emergency.html" data-nav="emergency">🚨 <span>New Emergency</span></a><a href="tracking.html" data-nav="tracking">📍 <span>Track Emergency</span></a><a href="surge.html" data-nav="surge">⚡ <span>Twist Mode</span></a>
+</nav><div class="sidebar-bottom"><div class="user-mini"><span class="avatar">DR</span><div><b>Demo User</b><small>Ambulance</small></div></div><button class="ghost wide" id="logoutBtn">Sign out</button></div></aside>
+<main class="main"><header class="topbar"><div><span class="eyebrow">NAGPUR EMERGENCY NETWORK</span><h1>Ambulance Command</h1></div><div class="top-actions"><span class="live-dot">● LIVE</span><button class="icon-btn" id="notifyBtn">🔔<i>3</i></button><button class="mobile-menu">☰</button></div></header>
+<div class="demo-banner">DEMO MODE — Resource availability and locations are simulated for hackathon demonstration.</div>
+
+<section class="hero-card"><div><span class="status-chip critical">● CRITICAL</span><h2>Rohan, 27</h2><p class="muted">Head injury • Femur fracture • Heavy bleeding</p><div class="requirement-row"><span>✓ ICU</span><span>✓ Neurosurgeon</span><span>✓ Orthopedic</span><span>✓ O- Blood ×2</span></div></div><div class="eta-box"><small>DESTINATION ETA</small><strong id="eta">13 min</strong><span>CityCare Trauma Center</span></div></section>
+<div class="grid-4"><div class="metric"><small>AMBULANCE</small><b>MH-31-108</b><span class="green">ON ROUTE</span></div><div class="metric"><small>SPEED</small><b>48 km/h</b><span>Wardha Road</span></div><div class="metric"><small>HOSPITAL</small><b>CityCare</b><span>Accepted</span></div><div class="metric"><small>RESOURCES</small><b>4 / 4</b><span class="green">Reserved</span></div></div>
+<div class="two-col"><section class="panel"><div class="panel-head"><div><span class="eyebrow">LIVE ROUTE</span><h3>Wardha Road → Trauma Center</h3></div><button class="secondary" id="centerMap">Center</button></div><div id="liveMap" class="map"></div></section>
+<section class="panel"><div class="panel-head"><div><span class="eyebrow">CASE TIMELINE</span><h3>Rohan Emergency</h3></div></div><div class="timeline" id="timeline"></div></section></div>
+<section class="panel"><div class="panel-head"><div><span class="eyebrow">ACTIONS</span><h3>Transport controls</h3></div></div><div class="action-grid"><button class="primary" data-demo-step="arrived">Mark Patient Arrived</button><button class="secondary" data-demo-step="admitted">Mark Patient Admitted</button><button class="secondary" data-demo-step="update">Update Status</button><button class="secondary">📞 Call Hospital</button></div></section>
+
+</main></div><div id="toast-root"></div><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="js/app.js"></script><script src="js/dashboard.js"></script><script src="js/map.js"></script><script src="js/demo.js"></script></body></html>

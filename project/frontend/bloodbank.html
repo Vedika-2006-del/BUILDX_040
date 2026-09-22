@@ -1,0 +1,17 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Blood Bank Operations • Medi-ResQ</title><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head><body data-page="bloodbank" data-role="bloodbank"><div class="app-shell">
+<aside class="sidebar"><div class="brand"><span class="brand-mark small">✚</span><div><b>Medi-ResQ</b><small>Nagpur Command</small></div></div>
+<div class="demo-pill">● DEMO MODE</div><nav>
+<a href="ambulance.html" data-nav="ambulance">🚑 <span>Ambulance</span></a><a href="hospital.html" data-nav="hospital">🏥 <span>Hospital</span></a>
+<a href="bloodbank.html" data-nav="bloodbank">🩸 <span>Blood Bank</span></a><a href="admin.html" data-nav="admin">◉ <span>Control Center</span></a>
+<a href="emergency.html" data-nav="emergency">🚨 <span>New Emergency</span></a><a href="tracking.html" data-nav="tracking">📍 <span>Track Emergency</span></a><a href="surge.html" data-nav="surge">⚡ <span>Twist Mode</span></a>
+</nav><div class="sidebar-bottom"><div class="user-mini"><span class="avatar">DR</span><div><b>Demo User</b><small>Bloodbank</small></div></div><button class="ghost wide" id="logoutBtn">Sign out</button></div></aside>
+<main class="main"><header class="topbar"><div><span class="eyebrow">NAGPUR EMERGENCY NETWORK</span><h1>Blood Bank Operations</h1></div><div class="top-actions"><span class="live-dot">● LIVE</span><button class="icon-btn" id="notifyBtn">🔔<i>3</i></button><button class="mobile-menu">☰</button></div></header>
+<div class="demo-banner">DEMO MODE — Resource availability and locations are simulated for hackathon demonstration.</div>
+
+<div class="grid-4"><div class="metric"><small>CRITICAL GROUP</small><b>O-</b><span class="yellow">5 units</span></div><div class="metric"><small>TOTAL UNITS</small><b>86</b><span>8 groups</span></div><div class="metric"><small>RESERVED</small><b>7</b><span>2 for Rohan</span></div><div class="metric"><small>REQUESTS</small><b>2</b><span class="red">1 urgent</span></div></div>
+<section class="panel"><div class="panel-head"><div><span class="eyebrow">INVENTORY</span><h3>Blood Group Stock</h3></div><button class="secondary" id="addUnit">+ Add Unit</button></div><div class="blood-grid" id="bloodGrid"></div></section>
+<section class="panel"><div class="panel-head"><div><span class="eyebrow">EMERGENCY REQUEST</span><h3>Rohan • O-negative ×2</h3></div><span class="status-chip critical">URGENT</span></div><div class="request-card compact"><div><b>CityCare Trauma Center</b><small>Requested 2 units • Emergency #MR-1042</small></div><div class="request-actions"><button class="primary" id="reserveBlood">Reserve 2 Units</button><button class="secondary">Dispatch</button></div></div></section>
+
+</main></div><div id="toast-root"></div><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="js/app.js"></script><script src="js/dashboard.js"></script><script src="js/map.js"></script><script src="js/demo.js"></script></body></html>

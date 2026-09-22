@@ -1,0 +1,75 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Emergency Twist Mode • Medi-ResQ</title><link rel="stylesheet" href="css/style.css">
+</head><body data-page="surge" data-role="admin"><div class="app-shell">
+<aside class="sidebar"><div class="brand"><span class="brand-mark small">✚</span><div><b>Medi-ResQ</b><small>Nagpur Command</small></div></div>
+<div class="demo-pill">● DEMO MODE</div><nav>
+<a href="ambulance.html" data-nav="ambulance">🚑 <span>Ambulance</span></a><a href="hospital.html" data-nav="hospital">🏥 <span>Hospital</span></a>
+<a href="bloodbank.html" data-nav="bloodbank">🩸 <span>Blood Bank</span></a><a href="admin.html" data-nav="admin">◉ <span>Control Center</span></a>
+<a href="emergency.html" data-nav="emergency">🚨 <span>New Emergency</span></a><a href="tracking.html" data-nav="tracking">📍 <span>Track Emergency</span></a>
+<a href="surge.html" data-nav="surge">⚡ <span>Twist Mode</span></a>
+</nav><div class="sidebar-bottom"><div class="user-mini"><span class="avatar">DR</span><div><b>Demo User</b><small>Admin</small></div></div><button class="ghost wide" id="logoutBtn">Sign out</button></div></aside>
+<main class="main"><header class="topbar"><div><span class="eyebrow">NAGPUR EMERGENCY NETWORK</span><h1>Emergency Twist Mode</h1></div><div class="top-actions"><span class="live-dot">● LIVE</span><button class="mobile-menu">☰</button></div></header>
+<div class="demo-banner">DEMO MODE — simulates how Medi-ResQ adapts to the 4 hackathon emergency twists using the same backend and matching engine.</div>
+
+<div class="twist-tabs">
+ <button class="twist-tab active" data-tab="tSurge">🚑 Emergency Surge</button>
+ <button class="twist-tab" data-tab="tBlackout">📡 Network Blackout</button>
+ <button class="twist-tab" data-tab="tOverflow">🏥 Hospital Overflow</button>
+ <button class="twist-tab" data-tab="tGolden">⏱ Golden Hour</button>
+</div>
+
+<!-- 1. EMERGENCY SURGE -->
+<section id="tSurge" class="twist-panel active">
+ <section class="panel"><div class="panel-head"><div><span class="eyebrow">MASS CASUALTY</span><h3>Highway Accident — Bulk Intake</h3></div><span class="status-chip critical">MULTIPLE PATIENTS</span></div>
+ <p class="tiny">Add every patient arriving from the incident. The backend triages by severity, matches each to the best hospital in priority order (critical first), and auto-dispatches the nearest free ambulance.</p>
+ <label class="full" style="display:grid;gap:6px;font-size:11px;font-weight:750;color:#58667b;margin-bottom:12px">Incident Location<input id="incidentLocation" value="NH-44, near Khapri toll, Nagpur"></label>
+ <div id="patientRows"></div>
+ <div style="display:flex;gap:10px;margin-top:6px"><button class="secondary" id="addPatient">+ Add Patient</button><button class="secondary" id="fillDemo">Fill 6 demo patients</button></div>
+ <button class="primary big" id="dispatchAll">Dispatch & Allocate All →</button>
+ </section>
+ <section id="surgeResults" class="panel hidden"><div class="panel-head"><div><span class="eyebrow">ALLOCATION RESULT</span><h3>Triage-ordered assignment</h3></div></div>
+ <div class="grid-4" id="surgeSummary"></div>
+ <table class="result-table"><thead><tr><th>Patient</th><th>Triage</th><th>Ambulance</th><th>Destination</th><th>ETA</th></tr></thead><tbody id="surgeTableBody"></tbody></table>
+ </section>
+</section>
+
+<!-- 2. NETWORK BLACKOUT -->
+<section id="tBlackout" class="twist-panel">
+ <div id="netStatus" class="net-status"><span class="net-dot"></span><span id="netStatusText">Checking connection…</span></div>
+ <section class="panel"><div class="panel-head"><div><span class="eyebrow">OFFLINE-FIRST</span><h3>Create Emergency Without Internet</h3></div><button class="secondary" id="simBlackout">Simulate Blackout</button></div>
+ <p class="tiny">When the network is down, requests are saved to this device's local storage instead of failing, and an SMS fallback message is generated so the case can still reach dispatch by text.</p>
+ <div class="form-grid"><label>Patient Name<input id="ofName" value="Unknown patient"></label><label>Age<input type="number" id="ofAge" value="30"></label><label>Blood Group<select id="ofBlood"><option>O-</option><option>O+</option><option>A+</option><option>B+</option></select></label><label class="full">Location<input id="ofLocation" value="Wardha Road accident site"></label></div>
+ <button class="primary big" id="ofSubmit">Save Emergency</button>
+ <div id="smsPreview" class="sms-box hidden"></div>
+ </section>
+ <section class="panel"><div class="panel-head"><div><span class="eyebrow">LOCAL QUEUE</span><h3>Pending Sync (<span id="queueCount">0</span>)</h3></div><button class="primary" id="syncQueue">↻ Reconnect & Sync</button></div>
+ <div id="queueList"></div>
+ </section>
+</section>
+
+<!-- 3. HOSPITAL OVERFLOW -->
+<section id="tOverflow" class="twist-panel">
+ <section class="panel"><div class="panel-head"><div><span class="eyebrow">CAPACITY</span><h3>Hospital Bed Availability</h3></div><button class="secondary" id="refreshCap">Refresh</button></div>
+ <div id="hospitalCapacity"></div>
+ <div class="info-box">When every hospital is full or clinically unsuitable, the matching engine automatically redirects the patient to the nearest emergency camp or partner hospital below — see the <b>Emergency Surge</b> tab results for live redirects (marked "Camp / Partner").</div>
+ </section>
+ <section class="panel"><div class="panel-head"><div><span class="eyebrow">OVERFLOW DESTINATIONS</span><h3>Emergency Camps & Partner Hospitals</h3></div></div>
+ <div id="campCapacity"></div>
+ </section>
+</section>
+
+<!-- 4. GOLDEN HOUR -->
+<section id="tGolden" class="twist-panel">
+ <div class="two-col">
+ <section class="panel"><div class="panel-head"><div><span class="eyebrow">GOLDEN HOUR</span><h3>Most Recent Emergency</h3></div></div>
+ <div id="goldenTimer" class="gh-timer"><strong id="goldenClock">--:--</strong><small>REMAINING OF THE 60-MINUTE GOLDEN HOUR</small></div>
+ <p class="tiny" id="goldenCase">No emergency created yet — create one from the Emergency Surge tab or New Emergency page.</p>
+ </section>
+ <section class="panel"><div class="panel-head"><div><span class="eyebrow">FLEET</span><h3>Ambulance Auto-Dispatch</h3></div></div>
+ <p class="tiny">Every new case is auto-assigned the nearest free ambulance from the live fleet, cutting the time lost coordinating a driver manually. Ambulances return to the pool once marked arrived.</p>
+ <div id="ambulanceList" class="specialist-list"></div>
+ </section>
+ </div>
+</section>
+
+</main></div><div id="toast-root"></div><script src="js/app.js"></script><script src="js/surge.js"></script></body></html>

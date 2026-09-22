@@ -1,0 +1,19 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hospital Operations • Medi-ResQ</title><link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head><body data-page="hospital" data-role="hospital"><div class="app-shell">
+<aside class="sidebar"><div class="brand"><span class="brand-mark small">✚</span><div><b>Medi-ResQ</b><small>Nagpur Command</small></div></div>
+<div class="demo-pill">● DEMO MODE</div><nav>
+<a href="ambulance.html" data-nav="ambulance">🚑 <span>Ambulance</span></a><a href="hospital.html" data-nav="hospital">🏥 <span>Hospital</span></a>
+<a href="bloodbank.html" data-nav="bloodbank">🩸 <span>Blood Bank</span></a><a href="admin.html" data-nav="admin">◉ <span>Control Center</span></a>
+<a href="emergency.html" data-nav="emergency">🚨 <span>New Emergency</span></a><a href="tracking.html" data-nav="tracking">📍 <span>Track Emergency</span></a><a href="surge.html" data-nav="surge">⚡ <span>Twist Mode</span></a>
+</nav><div class="sidebar-bottom"><div class="user-mini"><span class="avatar">DR</span><div><b>Demo User</b><small>Hospital</small></div></div><button class="ghost wide" id="logoutBtn">Sign out</button></div></aside>
+<main class="main"><header class="topbar"><div><span class="eyebrow">NAGPUR EMERGENCY NETWORK</span><h1>Hospital Operations</h1></div><div class="top-actions"><span class="live-dot">● LIVE</span><button class="icon-btn" id="notifyBtn">🔔<i>3</i></button><button class="mobile-menu">☰</button></div></header>
+<div class="demo-banner">DEMO MODE — Resource availability and locations are simulated for hackathon demonstration.</div>
+
+<div class="grid-4"><div class="metric"><small>ICU BEDS</small><b id="icu">3</b><span class="green">AVAILABLE</span></div><div class="metric"><small>EMERGENCY BEDS</small><b>7</b><span>of 12</span></div><div class="metric"><small>OT ROOMS</small><b>2</b><span class="yellow">1 occupied</span></div><div class="metric"><small>EMERGENCY LOAD</small><b>62%</b><span class="yellow">Moderate</span></div></div>
+<div class="two-col"><section class="panel"><div class="panel-head"><div><span class="eyebrow">INCOMING</span><h3>Emergency Requests</h3></div><span class="status-chip critical">1 URGENT</span></div>
+<div class="request-card"><div class="request-top"><div class="avatar danger">R</div><div><b>Rohan, 27</b><small>Critical • ETA 13 min</small></div><span class="score">91%</span></div><div class="tag-row"><span>ICU</span><span>Neurosurgeon</span><span>Orthopedic</span><span>O- ×2</span></div><div class="request-actions"><button class="primary" id="acceptBtn">Accept Emergency</button><button class="danger-btn" id="rejectBtn">Reject</button></div></div></section>
+<section class="panel"><div class="panel-head"><div><span class="eyebrow">SPECIALISTS</span><h3>Live Availability</h3></div></div><div class="specialist-list"><div><span>🧠 Neurosurgeon</span><b class="green">AVAILABLE</b></div><div><span>🦴 Orthopedic</span><b class="green">AVAILABLE</b></div><div><span>🫀 Cardiologist</span><b class="red">BUSY</b></div><div><span>💉 Anesthesiologist</span><b class="green">AVAILABLE</b></div></div></section></div>
+<section class="panel"><div class="panel-head"><div><span class="eyebrow">RESOURCE CONTROL</span><h3>Adjust availability</h3></div></div><div class="resource-controls"><label>ICU Beds<input type="number" id="icuInput" value="3"></label><label>Emergency Beds<input type="number" value="7"></label><label>Operating Rooms<input type="number" value="2"></label><button class="primary" id="saveResources">Save Updates</button></div></section>
+
+</main></div><div id="toast-root"></div><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="js/app.js"></script><script src="js/dashboard.js"></script><script src="js/map.js"></script><script src="js/demo.js"></script></body></html>
