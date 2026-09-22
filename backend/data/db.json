@@ -1,0 +1,15 @@
+{
+  "users": [
+    {"id":"u1","email":"ambulance@mediresq.demo","password":"demo123","role":"ambulance","name":"Demo Paramedic"},
+    {"id":"u2","email":"hospital@mediresq.demo","password":"demo123","role":"hospital","name":"CityCare Operations"},
+    {"id":"u3","email":"bloodbank@mediresq.demo","password":"demo123","role":"bloodbank","name":"Nagpur Blood Bank"},
+    {"id":"u4","email":"admin@mediresq.demo","password":"demo123","role":"admin","name":"Control Center"}
+  ],
+  "hospitals": [
+    {"id":"h1","name":"CityCare Trauma Center","lat":21.132,"lng":79.083,"eta":13,"icu":2,"neurosurgeon":true,"orthopedic":true,"generalSurgeon":true,"or":true,"blood":{"O-":5,"O+":27},"score":91},
+    {"id":"h2","name":"Government Trauma Hospital","lat":21.091,"lng":79.103,"eta":9,"icu":4,"neurosurgeon":false,"orthopedic":true,"generalSurgeon":true,"or":true,"blood":{"O-":8,"O+":31},"score":76},
+    {"id":"h3","name":"Metro Multispeciality","lat":21.116,"lng":79.055,"eta":7,"icu":0,"neurosurgeon":true,"orthopedic":true,"generalSurgeon":true,"or":false,"blood":{"O-":1,"O+":14},"score":68}
+  ],
+  "blood": {"A+":18,"A-":4,"B+":15,"B-":6,"AB+":9,"AB-":2,"O+":27,"O-":5},
+  "emergencies": []
+}
