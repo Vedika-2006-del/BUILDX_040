@@ -1,0 +1,8 @@
+const MediResQ={role:localStorage.getItem('mr_role')||'ambulance',toast(msg){const r=document.getElementById('toast-root');if(!r)return;const d=document.createElement('div');d.className='toast';d.textContent=msg;r.appendChild(d);setTimeout(()=>d.remove(),2800)},setRole(r){localStorage.setItem('mr_role',r);this.role=r}};
+document.addEventListener('DOMContentLoaded',()=>{
+ document.querySelectorAll('.role-btn').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.role-btn').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');const r=b.dataset.role;const e=document.getElementById('email');if(e)e.value=r==='admin'?'admin@mediresq.demo':r+'@mediresq.demo'}));
+ const login=document.getElementById('loginBtn');if(login)login.onclick=()=>{MediResQ.setRole(MediResQ.role);const e=document.getElementById('email')?.value||'';let r=e.split('@')[0];if(['admin','ambulance','hospital','bloodbank'].includes(r))MediResQ.setRole(r);location.href=(r==='hospital'?'hospital.html':r==='bloodbank'?'bloodbank.html':r==='admin'?'admin.html':'ambulance.html')};
+ const logout=document.getElementById('logoutBtn');if(logout)logout.onclick=()=>{localStorage.removeItem('mr_role');location.href='login.html'};
+ const page=document.body.dataset.page;document.querySelector(`[data-nav="${page}"]`)?.classList.add('active');
+ const notify=document.getElementById('notifyBtn');if(notify)notify.onclick=()=>MediResQ.toast('3 simulated notifications: hospital accepted • O- reserved • ambulance 13 min away');
+});
